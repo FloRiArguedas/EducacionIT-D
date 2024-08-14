@@ -33,7 +33,6 @@ const InicioApp = () => {
   //?EDITAR USUARIO
 
   const editarUsuario = (usuarioEditado) => {
-    //console.log( 'Se está editando...' ,usuarioEditado)
     const nuevoEstadoUsuarios = usuarios.map (function(user){
       if (user.id === usuarioEditado.id){
           return usuarioEditado
