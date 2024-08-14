@@ -2,37 +2,36 @@ import { useState } from "react"
 import Formulario from "./components/Formulario"
 import Tabla from "./components/Tabla"
 import usuarios from './constants/usuarios'
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'; //Librería para generar ID al azar
 
 /* CONTENEDOR */
 const InicioApp = () => {
   
-  const [users, setUsers] = useState(usuarios) // <= array
-  console.log(users)
+  const [users, setUsers] = useState(usuarios) 
+
   const [usuarioAEditar, setUsuarioAEditar] = useState(null)
 
   const agregarUsuario = (usuario) => {
-    usuario.id = uuidv4()
-    console.log('Agregando el usuario al array...', usuario)
+    usuario.id = uuidv4() //Agrego el ID para el usuario
+    console.log('Agregando el usuario nuevo al array...', usuario)
 
-    const nuevoEstadousuarios = [...usuarios, usuario]
-    //console.log(nuevoEstadousuarios)
-    setUsers(nuevoEstadousuarios) // Le aviso a react que cambie el estado.
+    const nuevoEstadousuarios = [...usuarios, usuario] //Nuevo array con usuario nuevo.
+
+    setUsers(nuevoEstadousuarios) 
   }
 
-  const eliminarUsuario = (id) => { // Para poder eliminar un producto -> Necesito un identificador
-    //console.log('Recibí el id: ', id)
-    //const nuevoEstadoProductos = products.filter(prod => prod.id !== id)
+  const eliminarUsuario = (id) => { 
+
     const nuevoEstadoUsuarios = users.filter(function(user) {
-      //debugger
+
       if ( user.id !== id ) {
         return user
       } else {
-        console.log(user, '----> Producto que se va a eliminar', id)
+        console.log(user, '----> Usuario que se va a eliminar', id)
       }
     })
     console.log(nuevoEstadoUsuarios)
-    setUsers(nuevoEstadoUsuarios) // Cambio el estado. Le aviso a react que tiene que volver a dibujar los componentes involucrados
+    setUsers(nuevoEstadoUsuarios) 
   }
 
   return (

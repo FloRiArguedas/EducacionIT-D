@@ -22,8 +22,8 @@ const Tabla = ({users, eliminarUsuario, setUsuarioAEditar}) => {
                 <TablaFila 
                   key={idx} 
                   users={users} 
-                  eliminarUser={eliminarUsuario} 
-                  setUserAEditar={setUsuarioAEditar}
+                  eliminarUsuario={eliminarUsuario} 
+                  setUsuarioAEditar={setUsuarioAEditar}
                 />
               ))
             }
