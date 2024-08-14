@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Formulario = ({ agregarUsuario, usuarioAEditar, setUsuarioAEditar }) => {
+const Formulario = ({ agregarUsuario, usuarioAEditar, setUsuarioAEditar,editarUsuario }) => {
   // props = { agregarUsuario }
 
   const formInicial = {
@@ -20,20 +20,30 @@ const Formulario = ({ agregarUsuario, usuarioAEditar, setUsuarioAEditar }) => {
       [e.target.name]: e.target.value,
     });
   };
-  //SUBMIT
+  //SUBMIT BOTON ENVIAR
   const handleSubmit = (e) => {
     e.preventDefault(); 
     console.log("Enviando la información del usuario nuevo");
-    agregarUsuario(form);
+
+    if (form.id == null) { //Aquí agrego
+      agregarUsuario(form);
+    } else { //Si ya existe el ID, modifico el user
+      editarUsuario(form)
+    }
+
+    
     handleReset();
   };
-  //RESET
+
+
+
+  //RESET BOTON RESETEAR
   const handleReset = () => {
     setForm(formInicial);
-    setUsuarioAEditar(null);
+    setUsuarioAEditar(null); //Devuelvo al estado inicial el form con reset
   };
 
-  // useEffect(callback, [<referencias>])
+ //Hook para el usuario que voy a editar
   useEffect(() => {
     //console.log("Cambió el usuario a editar");
     usuarioAEditar ? setForm(usuarioAEditar) : setForm(formInicial);

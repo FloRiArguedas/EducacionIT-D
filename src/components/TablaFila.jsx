@@ -1,9 +1,9 @@
-import { notificacionSweet } from "./TablaFila.service";
+import { notificacionSweet } from "./TablaFila.service"; //Importo librería para la ventana de confirmar eliminación
 
 
 const TablaFila = ( { users, eliminarUsuario, setUsuarioAEditar} ) => {
     
-  console.log(users) // users = {id, nombre, categoria, }
+  console.log(users) 
 
   const handleEliminar = () => {
     

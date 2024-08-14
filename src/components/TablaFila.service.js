@@ -3,20 +3,20 @@ import Swal from "sweetalert2";
 export const notificacionSweet = (nombre, cb) => {
 
     Swal.fire({
-        title: `¿Estás seguro de que queres eliminar el producto: ${nombre}`,
-        text: "You won't be able to revert this!",
+        title: `¿Estás seguro de que queres eliminar el usuario: ${nombre}`,
+        text: "Cuidado, usted no podrá revertir esto!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Si, adelante!",
-        cancelButtonText: "Noooooo!",
+        confirmButtonText: "Si, borrar!",
+        cancelButtonText: "No, cancelar!",
       }).then((result) => {
         if (result.isConfirmed) {
           cb()
           Swal.fire({
-            title: "Lo borré!!!",
-            text: "Your file has been deleted.",
+            title: "Usuario Eliminado",
+            text: "El usuario fue eliminado con éxito",
             icon: "success"
           });
         }
